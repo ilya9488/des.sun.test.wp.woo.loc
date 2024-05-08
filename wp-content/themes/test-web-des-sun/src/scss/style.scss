@@ -1,0 +1,17 @@
+// @import 'include/vars.scss';
+// @import 'include/helper.scss';
+@import 'include/functions.scss';
+
+// @import 'include/btns.scss';
+// @import 'include/inputs.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  // font-family: "Inter", sans-serif;
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+@import 'parts/footer.scss';
