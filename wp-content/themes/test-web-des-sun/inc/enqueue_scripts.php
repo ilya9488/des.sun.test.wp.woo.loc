@@ -12,7 +12,7 @@ function wp_my_theme_enq() {
   wp_enqueue_script( 'my-jquery-async', get_template_directory_uri() . '/src/libs/jquery-3.2.1.min.js',array(),false,true);
   wp_enqueue_script( 'my-common-async', get_template_directory_uri() . '/src/js/common.js',array(),false ,true);
 
-  wp_localize_script( 'my-common', 'myajax',
+  wp_localize_script( 'my-common-async', 'myajax',
     array(
       'url' => admin_url('admin-ajax.php')
     )
