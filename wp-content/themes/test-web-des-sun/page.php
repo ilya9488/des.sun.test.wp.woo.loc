@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main class="clearfix page">
+<main class="clearfix page" id="content">
 
   <?php
     if ( have_posts() ) { while ( have_posts() ) {
