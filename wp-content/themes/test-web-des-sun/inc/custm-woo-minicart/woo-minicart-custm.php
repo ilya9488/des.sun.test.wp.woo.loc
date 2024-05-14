@@ -8,14 +8,7 @@ class CustomMiniCart_Class {
   }
 
   public function scripts() {
-    // wp_enqueue_style('', get_theme_file_uri('/inc/custm-woo-minicart/assets/css/minicart-default-template.css'), array(), '');
-    wp_enqueue_script('', get_theme_file_uri('/inc/custm-woo-minicart/assets/js/woo-minicart.js'), array('jquery'), '', true);
-  }
-
-  public function templates() {
-    if( !is_cart() && !is_checkout() ) {
-      require get_template_directory() . '/inc/custm-woo-minicart/default-template.php';
-    }
+    wp_enqueue_script('woo-minicart-defer', get_theme_file_uri('/inc/custm-woo-minicart/assets/js/woo-minicart.js'), array('my-jquery-async'), '', true);
   }
 
   public function woo_minicart_shortcode() {
@@ -27,6 +20,7 @@ class CustomMiniCart_Class {
     }
   }
 }
+
 
 // Minimum amount for free delivery
 function get_free_shipping_minimum() {
@@ -42,39 +36,39 @@ function get_free_shipping_minimum() {
   return false;
 }
 
-// add to cart
+
+// add to cart - action
 function update_mini_cart_on_add_to_cart() {
   ob_start();
   require get_template_directory() . '/inc/custm-woo-minicart/content.php';
   $mini_cart_content = ob_get_clean();
   $mini_cart_count = WC()->cart->get_cart_contents_count();
+  $mini_cart_subtotal = wp_kses_post(WC()->cart->get_cart_subtotal());
 
   wp_send_json_success(array(
-      'mini_cart_content' => $mini_cart_content,
-      'mini_cart_count' => $mini_cart_count
+    'mini_cart_content' => $mini_cart_content,
+    'mini_cart_count' => $mini_cart_count,
+    'mini_cart_subtotal' => $mini_cart_subtotal,
   ));
 }
-// update_mini_cart_on_add_to_cart();
+//  update mini cart on add to cart - action
 add_action('wp_ajax_update_mini_cart_on_add_to_cart', 'update_mini_cart_on_add_to_cart');
 add_action('wp_ajax_nopriv_update_mini_cart_on_add_to_cart', 'update_mini_cart_on_add_to_cart');
 
 
-// remove -----
+// remove - action
 function remove_from_cart_ajax() {
   if (isset($_POST['cart_item_key']) && isset($_POST['product_id'])) {
       $cart_item_key = $_POST['cart_item_key'];
       $product_id = $_POST['product_id'];
       
-      // Удаляем товар из корзины
+      // Remove the goods from the basket
       WC()->cart->remove_cart_item($cart_item_key);
-      
-      // Обновляем корзину после удаления товара
+      // Update the basket after removing the goods
       WC()->cart->calculate_totals();
-      
-      // Получаем общее количество товаров в корзине
+      // Get the total quantity of goods in the basket
       $total_quantity = WC()->cart->get_cart_contents_count();
-
-      // Получаем общую стоимость всех товаров в корзине
+      // Get the total cost of all goods in the basket
       $total_price = WC()->cart->get_cart_total();
       
       $response_data = array(
@@ -115,8 +109,7 @@ add_action('wp_ajax_remove_from_cart', 'remove_from_cart_ajax');
 add_action('wp_ajax_nopriv_remove_from_cart', 'remove_from_cart_ajax');
 
 
-
-// quantity cgange
+// quantity cgange - action
 function ajax_my_cart_qty() {
   if (isset($_POST['cart_item_key']) && isset($_POST['quantity'])) {
     // set the product key and quantity from the request
@@ -132,15 +125,13 @@ function ajax_my_cart_qty() {
     $passed_validation  = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $threeball_product_values, $threeball_product_quantity);
 
     if ($passed_validation) {
-        WC()->cart->set_quantity($cart_item_key, $threeball_product_quantity, true);
+      WC()->cart->set_quantity($cart_item_key, $threeball_product_quantity, true);
     }
 
     // Update the basket after changes
     WC()->cart->calculate_totals();
-
     // Get the total quantity of goods in the basket
     $total_quantity = WC()->cart->get_cart_contents_count();
-
     // Get the total cost of all goods in the basket
     $total_price = WC()->cart->get_cart_total();
 
@@ -178,7 +169,5 @@ function ajax_my_cart_qty() {
 
   die();
 }
-
-
 add_action('wp_ajax_my_cart_qty', 'ajax_my_cart_qty');
 add_action('wp_ajax_nopriv_my_cart_qty', 'ajax_my_cart_qty');

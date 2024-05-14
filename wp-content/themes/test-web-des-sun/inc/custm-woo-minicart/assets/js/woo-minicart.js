@@ -1,13 +1,12 @@
 (function ($) {
-  jQuery(document).ready( function() {
-    // hide / show
-    jQuery(document).on('click', function(e) {
-      if (jQuery(e.target).closest('.wmc-cart')[0]) {
-        jQuery('.cu_wmc-content').toggleClass('show');
-      }
-      if (jQuery(e.target).closest('.cu_wmc-close')[0] || jQuery(e.target).is('.cu_wmc-content-bg')) {
-        jQuery('.cu_wmc-content').removeClass('show');
-      }
+  $(document).ready( function readyWooMinicart() {
+
+    // hide / show - cart
+    $(document).on("click", "#wmc_count_btn", function () {
+      $('.cu_wmc-content').toggleClass('show');
+    })
+    $(document).on("click", ".cu_wmc-close, .cu_wmc-content-bg", function () {
+      $('.cu_wmc-content').removeClass('show');
     });
 
     // add to cart
@@ -19,20 +18,25 @@
           action: "update_mini_cart_on_add_to_cart"
         },
         success: function(response) {
-          const cu_wmc_content = $('.wmc-cart-wrapper.shortcode-wrapper .cu_wmc-content')
-          const cu_wmc_content_bg = $('.wmc-cart-wrapper.shortcode-wrapper .cu_wmc-content-bg')
+          const cu_wmc_content = $('.wmc-cart-wrapper.wmc-mini-cart-shortcode .cu_wmc-content')
+          const cu_wmc_content_bg = $('.wmc-cart-wrapper.wmc-mini-cart-shortcode .cu_wmc-content-bg')
           if(cu_wmc_content){
             cu_wmc_content.remove();
             cu_wmc_content_bg.remove();
           }
-          $('.wmc-cart-wrapper.shortcode-wrapper').append(response.data.mini_cart_content);
+          $('.wmc-cart-wrapper.wmc-mini-cart-shortcode').append(response.data.mini_cart_content);
           $('.wmc-count').html(response.data.mini_cart_count);
+          $('.wmc-cart__subtotal').html(response.data.mini_cart_subtotal);
         },
         error: function(xhr, status, error) {
           console.error(xhr.responseText);
         }
       });
-    }); // add to cart
+    }); 
+    $(document).on("click", ".add_to_cart_button", function () {
+      // fuse
+      $(document.body).trigger('added_to_cart');
+    })// /.add to cart
 
 
     // Reducing the amount of goods
@@ -43,7 +47,7 @@
       var minValue = parseInt(input.attr('min'), 10);
 
       if (currentValue > minValue) {
-          input.val(currentValue - 1).trigger('change');
+        input.val(currentValue - 1).trigger('change');
       }
     });
 
@@ -102,9 +106,7 @@
             cart_item_key: cart_item_key,
             quantity: currentVal,
           },
-          success: function (response) {
-            jQuery(document.body).trigger("added_to_cart", [response.fragments, response.cart_hash, $thisbutton]);
-  
+          success: function (response) {  
             // .wmc-price-qty
             const productId = response.data.product_id;
   
@@ -114,6 +116,8 @@
             const totalPrice = response.data.total_price;
             $('.subtotal .woocommerce-Price-amount.amount').remove();
             $('.subtotal').append(totalPrice);
+            $('.wmc-cart__subtotal .woocommerce-Price-amount.amount').remove();
+            $('.wmc-cart__subtotal').append(totalPrice);
   
             const totalQuantity = response.data.total_quantity;
             $('.wmc-count').html(totalQuantity);
@@ -124,14 +128,14 @@
             
             $('.mwc-price-difference').html(price_difference)
             if(progress_percent >= 100){ 
-                progress_percent = 100;
-                $('.have-free-shipping').show()
-                $('.have-no-free-shipping').hide()
-                $('.wmc-percent').css('width', progress_percent + '%');
-              }else{
-                $('.have-free-shipping').hide()
-                $('.have-no-free-shipping').show()
-                $('.wmc-percent').css('width', progress_percent + '%');
+              progress_percent = 100;
+              $('.have-free-shipping').show()
+              $('.have-no-free-shipping').hide()
+              $('.wmc-percent').css('width', progress_percent + '%');
+            }else{
+              $('.have-free-shipping').hide()
+              $('.have-no-free-shipping').show()
+              $('.wmc-percent').css('width', progress_percent + '%');
             }
   
           },
@@ -168,6 +172,8 @@
           const totalPrice = response.data.total_price;
           $('.subtotal .woocommerce-Price-amount.amount').remove();
           $('.subtotal').append(totalPrice);
+          $('.wmc-cart__subtotal .woocommerce-Price-amount.amount').remove();
+          $('.wmc-cart__subtotal').append(totalPrice);
           const totalQuantity = response.data.total_quantity;
           $('.wmc-count').html(totalQuantity);
 
@@ -201,7 +207,6 @@
         }
       });
     });
-
 
   });
 })(jQuery);
