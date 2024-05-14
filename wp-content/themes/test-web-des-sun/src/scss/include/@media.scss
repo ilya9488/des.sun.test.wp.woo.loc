@@ -1,0 +1,28 @@
+/* 
+  1920 px
+  1440 px
+  1024 px
+  375 px
+  320 px
+*/
+  
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+@mixin media-breakpoint-down($breakpoint) {
+  $width: map-get($breakpoints, $breakpoint);
+  @media (max-width: $width) {
+    @content;
+  }
+}
+@mixin media-breakpoint-up($breakpoint) {
+  $width: map-get($breakpoints, $breakpoint);
+  @media (min-width: $width) {
+    @content;
+  }
+}
