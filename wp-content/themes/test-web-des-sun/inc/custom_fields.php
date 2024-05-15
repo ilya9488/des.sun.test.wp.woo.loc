@@ -50,6 +50,11 @@ function custom_block_category( $categories, $post ) {
 				'title' => 'Custom Sections',
 				// 'icon'  => 'wordpress',
 			),
+      array(
+        'slug' => 'footer-blocks',
+        'title' => 'Footer Blocks',
+        // 'icon'  => 'wordpress',
+      ),
 		),
 		$categories,
 	);
@@ -62,39 +67,49 @@ function my_acf_init() {
 	// check function exists
 	if( function_exists('acf_register_block') ) {
 
+    // Footer Blocks
 		acf_register_block(array(
-			'name'			    	=> 'hero-block',
-			'title'			    	=> __('Section hero block'),
-			'description'	  	=> __('A custom block'),
+			'name'			    	=> 'footer-logo-description-contact',
+			'title'			    	=> __('Footer Logo, Description, Contact'),
+			'description'	  	=> __('A custom Footer: Logo | Description | Contact'),
 			'render_callback'	=> 'my_acf_block_render_callback',
-      'category'          => 'custom-sections',
+			'category'		  	=> 'footer-blocks',
 			'icon'				    => 'admin-page',
-			'mode'            => 'preview',
-			'keywords'		  	=> array( 'hero-block' ),
-			'supports'        => array(
-				'align' => true,
-				'mode' => false,
-				'jsx' => true
-			),
-			'enqueue_style'   => my_acf_block_style('hero-block'),
+			'keywords'		  	=> array( 'footer-logo-description-contact' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('footer-logo-description-contact'),
 			'enqueue_assets'  => function () {
-				if (is_admin()) do_action('acf-main-style'); 
+        if (is_admin()) do_action('acf-main-style'); 
 			}
 		));
 
 		acf_register_block(array(
-			'name'			    	=> 'partner-slider',
-			'title'			    	=> __('Partner slider'),
-			'description'	  	=> __('A custom Partner slider.'),
+			'name'			    	=> 'footer-recent-posts',
+			'title'			    	=> __('Footer Recent Posts'),
+			'description'	  	=> __('A custom Footer Recent Posts.'),
 			'render_callback'	=> 'my_acf_block_render_callback',
-			'category'		  	=> 'formatting',
+			'category'		  	=> 'footer-blocks',
 			'icon'				    => 'admin-page',
-			'keywords'		  	=> array( 'partner-slider' ),
+			'keywords'		  	=> array( 'footer-recent-posts' ),
 			'supports'        => array( 'anchor' => true ),
-			'enqueue_style'   => my_acf_block_style('partner-slider'),
+			'enqueue_style'   => my_acf_block_style('footer-recent-posts'),
 			'enqueue_assets'  => function () {
-				if (is_admin()) do_action('acf-main-style'); 
-				do_action('enqueue_slick');
+        if (is_admin()) do_action('acf-main-style'); 
+			}
+		));
+
+		acf_register_block(array(
+			'name'			    	=> 'footer-menu',
+			'title'			    	=> __('Footer Menu'),
+			'description'	  	=> __('A custom Footer Menu.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'footer-blocks',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'footer-menu' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('footer-menu'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style'); 
 			}
 		));
     
@@ -208,3 +223,18 @@ class My_ACF_Walker_Header_Menu extends Walker_Nav_Menu {
     $output .= "$indent</ul></div>\n";
   }
 }
+
+// Automatic list of all the menu of the site for the block: "Select Menu"
+function acf_select_menu( $field ) {
+  $choices = array();
+  $choices[ '0' ] = 'Choose the menu';
+  $menus = wp_get_nav_menus();
+  foreach ( $menus as $menu ) {
+    $choices[ $menu->term_id ] = $menu->name;
+  }
+  $field['choices'] = $choices;
+  return $field;
+}
+add_filter( 'acf/load_field/name=select_menu', 'acf_select_menu' );
+
+
