@@ -1,0 +1,61 @@
+@import '../../../src/scss/include/blocks-for-includes.scss';
+
+.footer-logo-description-contact{
+  width: 100%;
+  max-width: 270px;
+  @include media-breakpoint-down(xl){
+    width: auto;
+    max-width: none;
+  }
+  &__logo{
+    max-width: 110px;
+    max-height: 60px;
+    margin-bottom: 15px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }    
+  }
+  &__description{
+    font-family: $lora;
+    font-size: 14px;
+    line-height: 20px; 
+    color: #777;
+    margin-bottom: 20px;
+  }
+  // contact
+  &__item{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: $lora;
+    font-size: 14px;
+    line-height: 20px; 
+    color: #777; 
+    margin-bottom: 10px;
+    transition: .3s;
+    &:hover{
+      color: #000;
+    }
+    a{
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: .3s;
+      @media (hover:hover){
+        &:hover{
+          color: #000000;
+          text-decoration-color: currentColor;
+        }
+      }
+    }
+    .icon{
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
