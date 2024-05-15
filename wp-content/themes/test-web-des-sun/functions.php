@@ -23,25 +23,41 @@ get_template_part('inc/site_settings');
 get_template_part('inc/custm-woo-minicart/minicart');
 
 add_action('after_setup_theme', function(){
-    register_nav_menus( array(
-        'header_menu' => 'Header menu',
-        'footer_menu1' => 'Footer menu 1',
-        'footer_menu2' => 'Footer menu 2',
-    ) );
-    register_sidebar( array(
-        'name'          => 'Footer col 1',
-        'id'            => 'footer_col_1',
-        'before_widget' => '<div class="footer-col-menu">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>',
-    ) );
-    register_sidebar( array(
-        'name'          => 'Footer col 2',
-        'id'            => 'footer_col_2',
-        'before_widget' => '<div class="footer-col-menu">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>',
-    ) );
+  register_nav_menus( array(
+    'header_menu'  => 'Header menu',
+    'footer_menu1' => 'Footer menu 1 (Our Stores)',
+    'footer_menu2' => 'Footer menu 2 (Useful Links)',
+  ) );
+  register_sidebar( array(
+    'name'          => 'Footer col 1',
+    'id'            => 'footer_col_1',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ) );
+  register_sidebar( array(
+    'name'          => 'Footer col 2',
+    'id'            => 'footer_col_2',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ) );
+  register_sidebar( array(
+    'name'          => 'Footer col 3',
+    'id'            => 'footer_col_3',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ) );
+  register_sidebar( array(
+    'name'          => 'Footer col 4',
+    'id'            => 'footer_col_4',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ) );
 });
