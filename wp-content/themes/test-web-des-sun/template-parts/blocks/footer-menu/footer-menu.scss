@@ -1,0 +1,35 @@
+@import '../../../src/scss/include/blocks-for-includes.scss';
+
+.footer-menu{
+  flex: 1;
+  min-width: 170px;
+  &__title{
+    font-family: $marcellus;
+    font-size: 18px;
+    line-height: 25px; 
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  &__links{
+    .menu-item{
+      font-family: $lora;
+      font-size: 14px;
+      line-height: 20px; 
+      color: #777;
+      margin-bottom: 10px;
+      a{
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: .3s;
+        @media (hover:hover){
+          &:hover{
+            color: #000000;
+            text-decoration-color: currentColor;
+          }
+        }
+      }
+    }
+  }
+}
