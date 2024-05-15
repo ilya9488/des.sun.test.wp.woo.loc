@@ -1,3 +1,22 @@
+@import '../include/blocks-for-includes.scss';
+
 .footer{
-  margin-top: auto;
+  background-color: #EAEAEA;
+  &__wrap{
+    display: flex;
+    padding: 60px 0 70px;
+    gap: 32px;
+    @include media-breakpoint-down(xl){
+      flex-wrap: wrap;
+    }
+  }
+  &__col{
+    @include media-breakpoint-down(xl){
+      flex: 1;
+      min-width: 40%;
+    }
+    @include media-breakpoint-down(sm){
+      flex: 100%;
+    }
+  }
 }
