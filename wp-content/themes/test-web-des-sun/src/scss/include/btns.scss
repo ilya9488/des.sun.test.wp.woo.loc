@@ -41,4 +41,50 @@
     }
   }
 }
+.btn-light{
+  font-family: $lora;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px; 
+  text-transform: uppercase;
+  color: #000;
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  background-color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108px;
+  transition: .4s;
+  @media (hover:hover){
+    &:hover{
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}
+.btn-dark{
+  font-family: $lora;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px; 
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  background-color: #040404;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108px;
+  transition: .4s;
+  @media (hover:hover){
+    &:hover{
+      background-color: #fff;
+      color: #000;
+    }
+  }
+}
 /*================== bts ======================*/
