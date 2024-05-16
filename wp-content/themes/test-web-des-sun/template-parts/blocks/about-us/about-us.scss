@@ -1,0 +1,101 @@
+@import '../../../src/scss/include/blocks-for-includes.scss';
+
+.about-us{
+  &__wrap{
+    display: flex;
+    gap: 76px;
+    @include media-breakpoint-down(xl){
+      gap: 40px;
+    }
+    @include media-breakpoint-down(md){
+      flex-direction: column;
+      gap: 30px;
+    }
+    @include media-breakpoint-down(md){
+      align-items: center;  
+    }
+  }
+  &__image{
+    flex: 50%;
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-down(md){
+      max-width: 500px;
+    }
+  }
+  &__text-wrap{
+    padding-top: 82.5px;
+    flex: 50%;
+    text-align: center;
+    @include media-breakpoint-down(md){
+      padding-top: 0;
+      max-width: 500px;
+    }
+  }
+  &__sub-title-top{
+    display: block;
+    font-family: $lora;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 25px; 
+    color: #c3935b;
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 20px;
+      line-height: 23px; 
+    }
+    @include media-breakpoint-down(md){
+      font-size: 18px;
+      line-height: 21px; 
+    }
+  }
+  &__title{
+    font-family: $marcellus;
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 75px; 
+    color: #242424;
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 52px;
+      line-height: 65px; 
+    }
+    @include media-breakpoint-down(md){
+      font-size: 40px;
+      line-height: 48px; 
+    }
+  }
+  &__sub-title-bottom{
+    display: block;
+    font-family: $marcellus;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 55px;
+    color: #242424;
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 35px;
+      line-height: 45px;
+    }
+    @include media-breakpoint-down(md){
+      font-size: 28px;
+      line-height: 35px;
+    }
+  }
+  &__text{
+    font-family: $lora;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    color: #777;
+  }
+  &__links-btn{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
