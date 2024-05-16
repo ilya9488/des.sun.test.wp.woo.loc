@@ -23,6 +23,26 @@
     }
   }
 }
+.btn-light-gray-border{
+  font-family: $lora;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px; 
+  text-transform: uppercase;
+  color: #242424;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  padding: 10px 15px;
+  text-align: center;
+  display: block;
+  transition: .3s;
+  @media (hover:hover){
+    &:hover{
+      border-color: #242424;
+      background-color: #777777;
+    }
+  }
+}
 .btn-gold{
   font-family: $lora;
   font-weight: 500;
