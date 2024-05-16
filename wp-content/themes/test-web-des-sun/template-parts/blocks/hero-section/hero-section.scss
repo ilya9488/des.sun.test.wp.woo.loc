@@ -1,0 +1,116 @@
+@import '../../../src/scss/include/blocks-for-includes.scss';
+
+.hero-section{
+  color: $clear;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-height: 750px;
+  display: flex;
+  align-items: flex-end;
+  @include media-breakpoint-down(xl){
+    min-height: auto;
+  }
+  @include media-breakpoint-down(md){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__wrap{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    flex: 100%;
+    @include media-breakpoint-down(md){
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  &__text-wrap{
+    max-width: 470px;
+    padding: 240px 0;
+    @include media-breakpoint-down(xl){
+      padding: 240px 0 120px;
+    }
+    @include media-breakpoint-down(lg){
+      padding: 100px 0 60px;
+      max-width: 45%;
+    }
+    @include media-breakpoint-down(md){
+      padding-top: 0;
+      max-width: 470px;
+
+    }
+  }
+  &__sub-title{
+    display: block;
+    font-family: $lora;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 25px; 
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @include media-breakpoint-down(md){
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+  &__title{
+    color: inherit;
+    font-family: $marcellus;
+    font-size: 54px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    @include media-breakpoint-down(xl){
+      font-size: 45px;
+      line-height: 55px;
+    }
+    @include media-breakpoint-down(lg){
+      font-size: 35px;
+      line-height: 45px;
+    }
+    @include media-breakpoint-down(md){
+      font-size: 30px;
+      line-height: 38px;
+    }
+  }
+  &__text{
+    font-family: $lora;
+    font-size: 14px;
+    line-height: 25px; 
+    margin-bottom: 35px;
+  }
+  &__links-btn{
+    display: flex;
+    gap: 15px;
+  }
+  &__image{
+    max-width: 600px;
+    max-height: 650px;
+    display: flex;
+    position: relative;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      z-index: 1;
+      @include media-breakpoint-down(md){
+        background: linear-gradient(0deg, rgba(4,4,4,1) 0%, transparent 80%, transparent 100%);
+      }
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom;
+    }
+  }
+}

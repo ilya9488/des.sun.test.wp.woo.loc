@@ -66,6 +66,22 @@ function my_acf_init() {
 
 	// check function exists
 	if( function_exists('acf_register_block') ) {
+    
+    // Custom Blocks (Home)
+		acf_register_block(array(
+			'name'			    	=> 'hero-section',
+			'title'			    	=> __('Hero Section'),
+			'description'	  	=> __('A custom Hero Section'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'custom-sections',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'hero-section' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('hero-section'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style'); 
+			}
+		));
 
     // Footer Blocks
 		acf_register_block(array(
