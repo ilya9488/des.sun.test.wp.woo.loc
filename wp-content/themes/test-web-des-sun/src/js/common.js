@@ -69,6 +69,21 @@
       }
     }, 200);
 
+
+    // Video play - global each - all blocks
+    $('.play-button').on('click', function() {
+      var id = $(this).data('id');
+      var video = $('#video-' + id).get(0);
+      if (video.paused) {
+        video.play();
+        video.classList.add('play')
+        $('#video-' + id).show();
+      } else {
+        video.pause();
+        video.classList.remove('play')
+      }
+    });
+
     
   });
 })(jQuery);
