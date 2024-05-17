@@ -1,4 +1,10 @@
 /*================== bts ======================*/
+button{
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
 .btn{
   display: flex;
 	align-items: center;
@@ -13,6 +19,7 @@
   text-transform: uppercase;
   color: #fff;
   background-color: #777777;
+  text-decoration: none;
   padding: 10px 15px;
   text-align: center;
   display: block;
@@ -32,6 +39,7 @@
   color: #242424;
   border: 1px solid #dfdfdf;
   background-color: #fff;
+  text-decoration: none;
   padding: 10px 15px;
   text-align: center;
   display: block;
@@ -51,6 +59,7 @@
   text-transform: uppercase;
   color: #fff;
   background-color: #C3935B;
+  text-decoration: none;
   padding: 10px 15px;
   text-align: center;
   display: block;
@@ -105,6 +114,16 @@
       background-color: #fff;
       color: #000;
     }
+  }
+}
+
+// btn loader
+@keyframes loader {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }
 /*================== bts ======================*/
