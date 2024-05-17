@@ -98,6 +98,21 @@ function my_acf_init() {
 			}
 		));
 
+		acf_register_block(array(
+			'name'			    	=> 'featured-products',
+			'title'			    	=> __('Featured Products Section'),
+			'description'	  	=> __('A custom Featured Products Section'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'custom-sections',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'featured-products' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('featured-products'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style'); 
+			}
+		));
+    
     // Footer Blocks
 		acf_register_block(array(
 			'name'			    	=> 'footer-logo-description-contact',

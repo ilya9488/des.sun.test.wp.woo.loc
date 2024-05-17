@@ -33,5 +33,42 @@
       });
     })
 
+    // Featured Products Slider
+    let featuredProductsSliderInterval_i = 0;
+    const featuredProductsSliderInterval = setInterval(function() {
+      featuredProductsSliderInterval_i++;
+      const featuredProductsSlider = $('.featured-products__slider');
+      if (featuredProductsSlider.length && $.fn.slick) {
+        featuredProductsSlider.slick({
+          infinite:false,
+          slidesToShow: 3,
+          dots: false,
+          speed: 300,
+          cssEase:'linear',
+          nextArrow: '<button class="featured-products__next"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.724609 13.7375L6.46211 8L0.72461 2.2625L2.49961 0.5L9.99961 8L2.49961 15.5L0.724609 13.7375Z" fill="#777777"/></svg></button>',
+          prevArrow: '<button class="featured-products__prev"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.27539 2.2625L3.53789 8L9.27539 13.7375L7.50039 15.5L0.000390679 8L7.50039 0.5L9.27539 2.2625Z" fill="#777777"/></svg></button>',
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+        clearInterval(featuredProductsSliderInterval);
+      }
+      if(featuredProductsSliderInterval_i === 20){
+        clearInterval(featuredProductsSliderInterval);
+      }
+    }, 200);
+
+    
   });
 })(jQuery);
