@@ -24,7 +24,7 @@
 
 ?>
 
-<div style="background-image: url();" <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
+<div <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
 
   <div class="container">
     <div class="about-us__wrap">

@@ -23,7 +23,7 @@
   $featured_products = $fields['featured_products'];
 ?>
 
-<div style="background-image: url();" <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
+<div <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
 
   <div class="container featured-products__wrap">
 
