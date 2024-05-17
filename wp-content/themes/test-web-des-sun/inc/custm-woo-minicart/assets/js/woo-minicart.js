@@ -31,13 +31,13 @@
         error: function(xhr, status, error) {
           console.error(xhr.responseText);
         }
+      }).done(function(response) {
+        // show cart
+        setTimeout(() => {
+          $('.cu_wmc-content').toggleClass('show');
+        }, 300);
       });
     }); 
-    $(document).on("click", ".add_to_cart_button", function () {
-      // fuse
-      $(document.body).trigger('added_to_cart');
-    })// /.add to cart
-
 
     // Reducing the amount of goods
     $(document).on("click", ".qty-minus", function(){
