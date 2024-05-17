@@ -129,12 +129,12 @@
             $('.mwc-price-difference').html(price_difference)
             if(progress_percent >= 100){ 
               progress_percent = 100;
-              $('.have-free-shipping').show()
-              $('.have-no-free-shipping').hide()
+              $('.have-free-shipping').removeClass('hide')
+              $('.have-no-free-shipping').addClass('hide')
               $('.wmc-percent').css('width', progress_percent + '%');
             }else{
-              $('.have-free-shipping').hide()
-              $('.have-no-free-shipping').show()
+              $('.have-free-shipping').addClass('hide')
+              $('.have-no-free-shipping').removeClass('hide')
               $('.wmc-percent').css('width', progress_percent + '%');
             }
   
