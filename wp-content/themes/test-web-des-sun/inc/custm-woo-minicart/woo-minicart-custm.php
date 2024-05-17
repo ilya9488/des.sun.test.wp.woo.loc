@@ -8,7 +8,7 @@ class CustomMiniCart_Class {
   }
 
   public function scripts() {
-    wp_enqueue_script('woo-minicart-defer', get_theme_file_uri('/inc/custm-woo-minicart/assets/js/woo-minicart.js'), array('my-jquery-async'), '', true);
+    wp_enqueue_script('woo-minicart-defer', get_theme_file_uri('/inc/custm-woo-minicart/assets/js/woo-minicart.js'), array('my-jquery'), '', true);
   }
 
   public function woo_minicart_shortcode() {
