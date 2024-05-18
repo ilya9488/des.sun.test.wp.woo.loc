@@ -128,6 +128,21 @@ function my_acf_init() {
 			}
 		));
     
+		acf_register_block(array(
+			'name'			    	=> 'discount-section',
+			'title'			    	=> __('Discount Section'),
+			'description'	  	=> __('A custom Discount Section'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'custom-sections',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'discount-section' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('discount-section'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style');
+			}
+		));
+    
     // Footer Blocks
 		acf_register_block(array(
 			'name'			    	=> 'footer-logo-description-contact',

@@ -1,0 +1,107 @@
+@import '../../../src/scss/include/blocks-for-includes.scss';
+
+.discount-section{
+  &__wrap{
+    display: flex;
+    gap: 15px;
+    @include media-breakpoint-down(md){
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+  }
+  &__text-wrap{
+    flex: 50%;
+    max-width: 570px;
+    @include media-breakpoint-down(md){
+      flex: 100%;
+      max-width: none;
+      order: 1;
+    }
+  }
+  &__title{
+    font-family: $marcellus;
+    font-size: 62px;
+    line-height: 75px; 
+    color: #242424;
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 50px;
+      line-height: 60px; 
+    }
+    @include media-breakpoint-down(lg){
+      font-size: 40px;
+      line-height: 50px; 
+    }
+    @include media-breakpoint-down(md){
+      font-size: 36px;
+      line-height: 46px; 
+    }
+  }
+  &__percent{ /* % */
+    color: #c3935b; 
+  }
+  &__sub-title{
+    font-family: $marcellus;
+    font-size: 45px;
+    line-height: 55px; 
+    color: #242424;
+    margin-bottom: 10px;
+    @include media-breakpoint-down(xl){
+      font-size: 35px;
+      line-height: 45px; 
+    }
+    @include media-breakpoint-down(xl){
+      font-size: 26px;
+      line-height: 40px; 
+    }
+    @include media-breakpoint-down(md){
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+  &__text{
+    font-family: $lora;
+    font-size: 14px;
+    line-height: 25px; 
+    color: #777;
+    margin-bottom: 15px;
+  }
+  &__list{
+    // ul
+    &-description{
+      padding-left: 30px;
+      margin-bottom: 30px;
+      @include media-breakpoint-down(xl){
+        padding-left: 0;
+      }
+    }
+    // li
+    &-item{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-family: $lora;
+      font-size: 14px;
+      line-height: 25px; 
+      color: #777;
+      &:last-of-type{
+        margin-bottom: 0;
+      }
+      .icon{
+        min-width: 25px;
+      }
+    }
+  }
+  &__links-btn{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__image{
+    flex: 50%;
+    @include media-breakpoint-down(md){
+      flex: 100%;
+      text-align: center;
+    }
+  }
+}
