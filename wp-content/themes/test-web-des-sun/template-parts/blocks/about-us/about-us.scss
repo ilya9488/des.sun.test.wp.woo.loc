@@ -65,6 +65,10 @@
       font-size: 40px;
       line-height: 48px; 
     }
+    @include media-breakpoint-down(sm){
+      font-size: 34px;
+      line-height: 40px; 
+    }
   }
   &__sub-title-bottom{
     display: block;
@@ -81,6 +85,10 @@
     @include media-breakpoint-down(md){
       font-size: 28px;
       line-height: 35px;
+    }
+    @include media-breakpoint-down(sm){
+      font-size: 24px;
+      line-height: 32px;
     }
   }
   &__text{
