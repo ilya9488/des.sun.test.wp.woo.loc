@@ -70,6 +70,11 @@
             <div class="blog-slider__post-img">
               <a href="<?php echo esc_url( $permalink ); ?>">
                 <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>">
+                <div class="blog-slider__img-hover">
+                  <span class="dot-1"></span>
+                  <span class="dot-2"></span>
+                  <span class="dot-3"></span>
+                </div>
               </a>
               <div class="blog-slider__post-date">
                 <span class="blog-slider__post-day">

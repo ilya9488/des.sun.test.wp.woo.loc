@@ -1,6 +1,6 @@
 {
     "key": "group_664795e92fc17",
-    "title": "Block: About Us Section (copy)",
+    "title": "Block: Discount Section",
     "fields": [
         {
             "key": "field_664795e934b76",
@@ -259,5 +259,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715967712
+    "modified": 1716227276
 }

@@ -190,9 +190,9 @@
             ?>
       
               <div class="special-offer__product">
-                <div class="special-offer__product-image">
+                <a href="<?php echo $product_link; ?>" class="special-offer__product-image">
                   <?php echo woocommerce_get_product_thumbnail(); ?>
-                </div>
+                </a>
                 <div class="special-offer__product-text-wrap">
                   <div class="special-offer__product-name">
                     <a href="<?php echo $product_link; ?>">
@@ -200,7 +200,7 @@
                     </a>
                   </div>
                   <div class="special-offer__product-price">
-                    <?php echo $product_price; ?>
+                    <?php echo $product_price? $product_price:'-'; ?>
                   </div>                 
                 </div>
               </div>
