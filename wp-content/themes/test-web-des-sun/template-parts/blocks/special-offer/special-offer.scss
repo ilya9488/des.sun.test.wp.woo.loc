@@ -75,6 +75,10 @@
     line-height: 25px; 
     color: #242424;
     margin-bottom: 10px;
+    @include media-breakpoint-down(sm){
+      font-size: 20px;
+      line-height: 24px; 
+    }
   }
   &__title{
     font-family: $marcellus;
@@ -86,6 +90,10 @@
       font-size: 44px;
       line-height: 54px; 
     }
+    @include media-breakpoint-down(sm){
+      font-size: 32px;
+      line-height: 40px; 
+    }
   }
   &__sub-title-bottom{
     font-family: $marcellus;
@@ -94,6 +102,10 @@
     text-transform: uppercase;
     color: #242424;
     margin-bottom: 30px;
+    @include media-breakpoint-down(sm){
+      font-size: 16px;
+      line-height: 22px; 
+    }
   }
   &__link{
     display: inline-flex;
@@ -108,7 +120,7 @@
     @include media-breakpoint-down(xl){
       flex: 100%;
       width: 100%;
-      max-width: none;
+      max-width: 900px;
     }
     @include media-breakpoint-down(sm){
       gap: 20px;
