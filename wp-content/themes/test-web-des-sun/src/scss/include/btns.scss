@@ -5,11 +5,6 @@ button{
   padding: 0;
   cursor: pointer;
 }
-.btn{
-  display: flex;
-	align-items: center;
-	justify-content: center;
-}
 
 .btn-gray{
   font-family: $lora;
@@ -22,7 +17,9 @@ button{
   text-decoration: none;
   padding: 10px 15px;
   text-align: center;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: .3s;
   @media (hover:hover){
     &:hover{
@@ -42,7 +39,9 @@ button{
   text-decoration: none;
   padding: 10px 15px;
   text-align: center;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: .3s;
   @media (hover:hover){
     &:hover{
@@ -61,7 +60,9 @@ button{
   text-decoration: none;
   padding: 10px 15px;
   text-align: center;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: .3s;
   @media (hover:hover){
     &:hover{
@@ -80,7 +81,7 @@ button{
   padding: 10px 15px;
   background-color: #fff;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 108px;
@@ -103,7 +104,7 @@ button{
   padding: 10px 15px;
   background-color: #040404;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 108px;
