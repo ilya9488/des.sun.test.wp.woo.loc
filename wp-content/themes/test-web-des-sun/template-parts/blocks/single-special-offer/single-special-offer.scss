@@ -42,8 +42,10 @@
             .icon-pause{
               opacity: 1;
             }
-            &:hover{
-              opacity: 1;
+            @media (hover:hover){
+              &:hover{
+                opacity: 1;
+              }
             }
           }
           &~.single-special-offer__video-poster{
@@ -63,10 +65,12 @@
         align-items: center;
         justify-content: center;
         transition: .4s;
-        &:hover{
-          opacity: 1;
-          svg{
-            transform: scale(1.1);
+        @media (hover:hover){
+          &:hover{
+            opacity: 1;
+            svg{
+              transform: scale(1.1);
+            }
           }
         }
         .icon-pause{
