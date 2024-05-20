@@ -142,6 +142,21 @@ function my_acf_init() {
         if (is_admin()) do_action('acf-main-style');
 			}
 		));
+
+    acf_register_block(array(
+			'name'			    	=> 'special-offer',
+			'title'			    	=> __('Special Offer Section'),
+			'description'	  	=> __('A custom Special Offer Section'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'custom-sections',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'special-offer' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('special-offer'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style');
+			}
+		));
     
     // Footer Blocks
 		acf_register_block(array(
