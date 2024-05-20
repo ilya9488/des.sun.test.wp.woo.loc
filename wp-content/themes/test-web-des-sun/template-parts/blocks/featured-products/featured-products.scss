@@ -1,9 +1,6 @@
 @import '../../../src/scss/include/blocks-for-includes.scss';
 
 .featured-products{
-  &__wrap{
-    // 
-  }
   &__text-wrap{
     margin-bottom: 50px;
     text-align: center;
@@ -40,9 +37,6 @@
     font-size: 14px;
     line-height: 25px; 
     color: #777;
-  }
-  &__links-btn{
-    // 
   }
   &__content{
     display: flex;
@@ -296,9 +290,6 @@
     font-size: 14px;
     line-height: 25px; 
     color: #c3935b;
-  }
-  &__add-to-cart{
-    // 
   }
   .slick-arrow{
     position: absolute;
