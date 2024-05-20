@@ -157,6 +157,21 @@ function my_acf_init() {
         if (is_admin()) do_action('acf-main-style');
 			}
 		));
+
+    acf_register_block(array(
+			'name'			    	=> 'blog-slider',
+			'title'			    	=> __('Blog Slider Section'),
+			'description'	  	=> __('A custom Blog Slider Section'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'		  	=> 'custom-sections',
+			'icon'				    => 'admin-page',
+			'keywords'		  	=> array( 'blog-slider' ),
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_style'   => my_acf_block_style('blog-slider'),
+			'enqueue_assets'  => function () {
+        if (is_admin()) do_action('acf-main-style');
+			}
+		));
     
     // Footer Blocks
 		acf_register_block(array(

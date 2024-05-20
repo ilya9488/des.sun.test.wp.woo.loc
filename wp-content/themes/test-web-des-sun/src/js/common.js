@@ -68,6 +68,43 @@
         clearInterval(featuredProductsSliderInterval);
       }
     }, 200);
+    
+    // Blog Slider 
+    let blogSliderSliderInterval_i = 0;
+    const blogSliderSliderInterval = setInterval(function() {
+      blogSliderSliderInterval_i++;
+      const blogSliderSlider = $('.blog-slider__wrap');
+      if (blogSliderSlider.length && $.fn.slick) {
+        blogSliderSlider.slick({
+          infinite:false,
+          slidesToShow: 3,
+          dots: false,
+          speed: 300,
+          cssEase:'linear',
+          nextArrow: '<button class="blog-slider__next"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.724609 13.7375L6.46211 8L0.72461 2.2625L2.49961 0.5L9.99961 8L2.49961 15.5L0.724609 13.7375Z" fill="#777777"/></svg></button>',
+          prevArrow: '<button class="blog-slider__prev"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.27539 2.2625L3.53789 8L9.27539 13.7375L7.50039 15.5L0.000390679 8L7.50039 0.5L9.27539 2.2625Z" fill="#777777"/></svg></button>',
+          adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 650,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+        clearInterval(blogSliderSliderInterval);
+      }
+      if(blogSliderSliderInterval_i === 20){
+        clearInterval(blogSliderSliderInterval);
+      }
+    }, 200);
 
 
     // Video play - global each - all blocks
