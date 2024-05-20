@@ -33,7 +33,6 @@
   <div class="container">
     <div class="special-offer__wrap">
   
-      
       <?php if( !empty($image)): ?>
         <div class="special-offer__image <?php echo $set_as_background? 'special-offer__image-bg':'special-offer__image-img'; ?>">
           <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -68,9 +67,10 @@
       <?php endif;?>
   
       <div class="special-offer__products-wrap">
+
         <?php 
           /* 
-          * featured Products In Category -> $special_offer_products_category
+          * Featured Products In Category -> $special_offer_products_category
           */
           $featured_loop = new WP_Query(
             array( 
@@ -144,7 +144,6 @@
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 
-        
         <?php
           /* 
           * New Products In Category -> $special_offer_products_category
@@ -211,9 +210,7 @@
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
                 
-        </div>
       </div>
-  
     </div>
   </div>
 
