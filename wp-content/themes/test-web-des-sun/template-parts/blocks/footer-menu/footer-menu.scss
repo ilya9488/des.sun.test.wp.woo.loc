@@ -18,6 +18,9 @@
       line-height: 20px; 
       color: #777;
       margin-bottom: 10px;
+      &:last-of-type{
+        margin-bottom: 0;
+      }
       a{
         color: inherit;
         text-decoration: underline;
