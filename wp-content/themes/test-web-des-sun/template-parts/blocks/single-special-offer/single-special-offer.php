@@ -66,7 +66,7 @@
             </button>
             <?php /* video poster */ if($video_poster): ?>
               <div class="single-special-offer__video-poster">
-                <img src="<?php echo esc_url($video_poster['url']); ?>" alt="<?php echo esc_attr($video_poster['alt']); ?>" />
+                <img width="581" height="327" src="<?php echo esc_url($video_poster['url']); ?>" alt="<?php echo esc_attr($video_poster['alt']); ?>" loading="lazy" >
               </div>
             <?php endif; // video poster ?>
           </div>
@@ -74,7 +74,7 @@
 
         <?php /* type: imag */ if($image_or_video['type'] === 'image' ): ?>
           <div class="single-special-offer__image">
-            <img src="<?php echo esc_url($image_or_video['url']); ?>" alt="<?php echo esc_attr($image_or_video['alt']); ?>" />
+            <img width="581" height="327" src="<?php echo esc_url($image_or_video['url']); ?>" alt="<?php echo esc_attr($image_or_video['alt']); ?>" loading="lazy" >
           </div>
         <?php endif; // type: image ?>
 

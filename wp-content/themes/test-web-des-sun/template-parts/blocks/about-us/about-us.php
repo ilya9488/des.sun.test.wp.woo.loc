@@ -31,7 +31,7 @@
   
       <?php  if( !empty( $image ) ): ?>
         <div class="about-us__image">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+          <img width="624" height="500" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" />
         </div>
       <?php endif; ?>
   

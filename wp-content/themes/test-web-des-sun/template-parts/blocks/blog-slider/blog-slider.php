@@ -69,7 +69,7 @@
           <div class="blog-slider__slide">
             <div class="blog-slider__post-img">
               <a href="<?php echo esc_url( $permalink ); ?>">
-                <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>">
+                <img width="346" height="261" src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" loading="lazy" >
                 <div class="blog-slider__img-hover">
                   <span class="dot-1"></span>
                   <span class="dot-2"></span>
@@ -97,7 +97,7 @@
               <span class="blog-slider__post-posted-by">
                 <?php _e('Posted by','web-des-sun') ?>:
               </span>
-              <img src="<?php echo $author_avatar; ?>" alt="<?php echo $author_name; ?>">
+              <img width="20" height="20" src="<?php echo $author_avatar; ?>" alt="<?php echo $author_name; ?>" loading="lazy" >
               <span class="blog-slider__post-name">
                 <?php echo $author_name; ?>
               </span>

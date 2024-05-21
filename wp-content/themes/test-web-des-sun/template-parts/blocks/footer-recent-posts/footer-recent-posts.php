@@ -45,7 +45,7 @@
           <div class="footer-recent-posts__post">
             <?php if ($thumbnail) : ?>
               <a href="<?= $permalink ?>" class="footer-recent-posts__post-thumbnail">
-                <img src="<?php echo $thumbnail; ?>" alt="<?php echo $alt; ?>">
+                <img width="75" height="65" src="<?php echo $thumbnail; ?>" alt="<?php echo $alt; ?>" loading="lazy" >
               </a>
             <?php endif; ?>
             <div class="footer-recent-posts__post-text">

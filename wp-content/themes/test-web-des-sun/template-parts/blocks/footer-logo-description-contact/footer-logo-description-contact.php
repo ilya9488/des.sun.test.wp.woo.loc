@@ -33,7 +33,7 @@
     <?php if( !empty( $logo ) ): ?>
       <div class="footer-logo-description-contact__logo">
         <a href="/">
-          <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" />
+          <img width="110" height="40" src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" loading="lazy" >
         </a>
       </div>
     <?php endif; ?>

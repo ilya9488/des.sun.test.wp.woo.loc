@@ -35,7 +35,7 @@
   
       <?php if( !empty($image)): ?>
         <div class="special-offer__image <?php echo $set_as_background? 'special-offer__image-bg':'special-offer__image-img'; ?>">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+          <img <?php echo $set_as_background? 'width="569" height="326"':'width="361" height="334"'; ?>  src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" >
           <div class="special-offer__text-wrap">
 
             <?php if (!empty($sub_title_top)): ?>

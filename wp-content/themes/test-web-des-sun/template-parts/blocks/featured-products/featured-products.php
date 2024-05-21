@@ -82,7 +82,7 @@
           <div class="featured-products__image-wrap <?php echo $text_color?'color-'.$text_color:''; ?>">
             <?php if( !empty( $image ) ): ?>
               <div class="featured-products__image">
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <img width="270" height="370" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" >
               </div>
             <?php endif; ?>
             <div class="featured-products__image-text-wrap">

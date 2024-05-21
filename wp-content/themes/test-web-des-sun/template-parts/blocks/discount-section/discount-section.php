@@ -88,7 +88,7 @@
 
       <?php  if( !empty( $image ) ): ?>
         <div class="discount-section__image">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+          <img width="585" height="520" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy" >
         </div>
       <?php endif; ?>
   

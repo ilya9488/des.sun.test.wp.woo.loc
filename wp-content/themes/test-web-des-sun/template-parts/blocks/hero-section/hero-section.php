@@ -66,7 +66,7 @@
 
     <?php  if( !empty( $image ) ): ?>
       <div class="hero-section__image">
-        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+        <img width="600" height="650" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
       </div>
     <?php endif; ?>
 
