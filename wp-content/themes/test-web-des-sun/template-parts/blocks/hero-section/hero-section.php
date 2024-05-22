@@ -23,9 +23,15 @@
 
 ?>
 
-<div <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
+<section <?php echo esc_attr($id_block); ?> class="<?php echo $class;  ?>">
 
   <div class="hero-section__wrap">
+
+    <?php  if( !empty( $image ) ): ?>
+      <div class="hero-section__image">
+        <img width="600" height="650" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
+      </div>
+    <?php endif; ?>
 
     <div class="hero-section__text-wrap">
       <?php if (!empty($sub_title)): ?>
@@ -63,12 +69,6 @@
         </div>
       <?php endif; ?>
     </div>
-
-    <?php  if( !empty( $image ) ): ?>
-      <div class="hero-section__image">
-        <img width="600" height="650" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
-      </div>
-    <?php endif; ?>
 
   </div>
   
