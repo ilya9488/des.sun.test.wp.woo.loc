@@ -3,8 +3,7 @@
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><?php bloginfo('name'); if (!is_front_page() ){ echo ' |'; } ?>
-    <?php is_front_page() ? '' : wp_title(''); ?></title>
+    
     <?php wp_head(); ?>
     <?php if( is_single() ) { echo '<meta property="og:image" content="'. get_the_post_thumbnail_url(get_the_ID(),'full')   .'" />'; } ?>
   </head>
